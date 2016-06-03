@@ -1,0 +1,16 @@
+{
+  "name": "js_store",
+  "version": "1.0.0",
+  "description": "Week6 Weekend Homework, model a record shop and practice what was learned this week using TDD constructs and methods.",
+  "main": "customer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PowerlessCube",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "lodash": "^4.13.1",
+    "mocha": "^2.5.3"
+  }
+}
