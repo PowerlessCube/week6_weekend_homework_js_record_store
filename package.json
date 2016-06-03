@@ -4,7 +4,7 @@
   "description": "Week6 Weekend Homework, model a record shop and practice what was learned this week using TDD constructs and methods.",
   "main": "customer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha specs"
   },
   "author": "PowerlessCube",
   "license": "ISC",
