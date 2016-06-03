@@ -1,10 +1,8 @@
-// TODO: - Create a RecordStore that has a name, city and multiple records in it's inventory
-
 var RecordStore = function(name, city, balance) {
-    this.name = name;
-    this.city = city;
-    this.balance = balance;
-    this.inventory = [];
+  this.name = name;
+  this.city = city;
+  this.balance = balance;
+  this.inventory = [];
 };
 
 // TODO: - Give the RecordStore a balance i.e. cash in bank.

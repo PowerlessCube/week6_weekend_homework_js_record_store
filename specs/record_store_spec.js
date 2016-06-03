@@ -7,9 +7,20 @@ describe('RecordStore Object Tests:', function() {
     recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
   });
 
-  // FIXME: Test: RecordStore has a name, city and multiple records in it's inventory
   it('Should have a name', function() {
     assert.equal( "North Star Records", recordStore.name );
+  });
+
+  it('Should have a city', function() {
+    assert.equal( "Edinburgh", recordStore.city );
+  });
+
+  it('Should have a balance', function() {
+    assert.equal( 100, recordStore.balance );
+  });
+
+  it('Should have an empty inventory :-\(', function() {
+    assert.deepEqual( [], recordStore.inventory );
   });
 
   // FIXME: - test: the RecordStore a balance i.e. cash in bank.
