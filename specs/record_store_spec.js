@@ -2,10 +2,9 @@ var RecordStore = require( "../models/record_store" );
 var Record = require( "../models/record" );
 var assert = require( "chai" ).assert;
 
-describe('RecordStore Object Tests:', function() {
+describe('RecordStore Object Tests (empty inventory):', function() {
 
   beforeEach(  function() {
-    record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );
     recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
   });
 
@@ -25,16 +24,47 @@ describe('RecordStore Object Tests:', function() {
     assert.deepEqual( [], recordStore.inventory );
   });
 
-  // FIXME: - test: Add records func.
-  it('Should be able to add records to store inventory', function() {
+});
+
+describe('RecordStore Object test (full inventory)', function() {
+
+  beforeEach(  function() {
+    record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );
+    record2 = new Record( "Blur", "Think Tank", 7.99 );
+    record3 = new Record( "Gorillaz", "Plastic Beach", 11.99 );
+    record4 = new Record( "One Direction", "Go That Direction", 10.99 );
+
+    recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
+
     recordStore.addRecordToInventory( record1 );
-    assert.deepEqual( [ record1 ], recordStore.inventory );
+    recordStore.addRecordToInventory( record2 );
+    recordStore.addRecordToInventory( record3 );
   });
 
-  // FIXME: - Test: method that lists the inventory.
+  // FIXME: - test: Add records func.
+  it('Should be able to add records to store inventory', function() {
+    recordStore.addRecordToInventory( record4 );
+    assert.deepEqual( [ record1, record2, record3, record4 ], recordStore.inventory );
+  });
+
+
+  //Helper Functions Tests
+  it('Find a record by by record object', function() {
+    assert.deepEqual( record2, recordStore.findRecord( record2 ));
+  });
+
+  it('Returns index of record object', function() {
+    assert.equal( 1, recordStore.findRecordIndex( record2 ));
+  });
+
 
   // FIXME: - TEST method RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold
+  // it('Can sell a record - cash adjusts in the balance to and inventory to reflect transaction', function() {
+  //   recordStore.sellRecord( record2 );
+  //   assert.deepEqual( [ record1, record3 ], recordStore.inventory );
+  //   assert.deepEqual( 92.01, recordStore.balance );
+  // // });
+
 
   // FIXME: - Create a method that reports on the financial situation of the store. Cash and value of inventory.
-
 });
