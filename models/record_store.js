@@ -15,6 +15,13 @@ RecordStore.prototype = {
 
   // TODO: - Create a method so that the RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold
 
+  // FIXME: Not sure Why I'm only getting back one item in the array...
+  sellRecord: function(record) {
+    var soldRecord = this.inventory.splice( this.findRecordIndex(record), 1);
+    this.balance -= record.price;
+    return soldRecord;
+  },
+
   // TODO: - Create a method that reports on the financial situation of the store. Cash and value of inventory.
 
   //helper functions

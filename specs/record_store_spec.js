@@ -41,12 +41,20 @@ describe('RecordStore Object test (full inventory)', function() {
     recordStore.addRecordToInventory( record3 );
   });
 
-  // FIXME: - test: Add records func.
   it('Should be able to add records to store inventory', function() {
     recordStore.addRecordToInventory( record4 );
     assert.deepEqual( [ record1, record2, record3, record4 ], recordStore.inventory );
   });
 
+  it('Can sell a record (Part 1) removes a record from the inventory)', function() {
+    recordStore.sellRecord( record2 );
+    assert.deepEqual( [ record1, record3 ], recordStore.inventory );
+  });
+
+  it('Can sell a record (Part 2) subtracts price from store balance', function() {
+    recordStore.sellRecord( record2 );
+    assert.equal( 92.01, recordStore.balance );
+  });
 
   //Helper Functions Tests
   it('Find a record by by record object', function() {
@@ -56,14 +64,6 @@ describe('RecordStore Object test (full inventory)', function() {
   it('Returns index of record object', function() {
     assert.equal( 1, recordStore.findRecordIndex( record2 ));
   });
-
-
-  // FIXME: - TEST method RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold
-  // it('Can sell a record - cash adjusts in the balance to and inventory to reflect transaction', function() {
-  //   recordStore.sellRecord( record2 );
-  //   assert.deepEqual( [ record1, record3 ], recordStore.inventory );
-  //   assert.deepEqual( 92.01, recordStore.balance );
-  // // });
 
 
   // FIXME: - Create a method that reports on the financial situation of the store. Cash and value of inventory.
