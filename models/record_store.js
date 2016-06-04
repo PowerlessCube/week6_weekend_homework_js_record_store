@@ -1,3 +1,5 @@
+var Record = require( "./record" );
+
 var RecordStore = function(name, city, balance) {
   this.name = name;
   this.city = city;
@@ -5,8 +7,12 @@ var RecordStore = function(name, city, balance) {
   this.inventory = [];
 };
 
-// TODO: - Give the RecordStore a balance i.e. cash in bank.
-
+RecordStore.prototype = {
+  addRecordToInventory: function(record) {
+    this.inventory.push( record );
+    console.log(this.inventory);
+  }
+};
 // TODO: - Add some records to your RecordStore.
 
 // TODO: - Create a method that lists the inventory.

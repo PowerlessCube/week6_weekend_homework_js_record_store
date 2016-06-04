@@ -1,9 +1,11 @@
 var RecordStore = require( "../models/record_store" );
+var Record = require( "../models/record" );
 var assert = require( "chai" ).assert;
 
 describe('RecordStore Object Tests:', function() {
 
   beforeEach(  function() {
+    record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );
     recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
   });
 
@@ -23,9 +25,11 @@ describe('RecordStore Object Tests:', function() {
     assert.deepEqual( [], recordStore.inventory );
   });
 
-  // FIXME: - test: the RecordStore a balance i.e. cash in bank.
-
   // FIXME: - test: Add records func.
+  it('Should be able to add records to store inventory', function() {
+    recordStore.addRecordToInventory( record1 );
+    assert.deepEqual( [ record1 ], recordStore.inventory );
+  });
 
   // FIXME: - Test: method that lists the inventory.
 
