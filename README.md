@@ -15,10 +15,10 @@
 - Give the RecordStore a balance i.e. cash in bank. (X)
 - Add some records to your RecordStore. (X)
 - Create a method that lists the inventory. (X)
-- Create a method so that the RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold
-- Create a method that reports on the financial situation of the store. Cash and value of inventory.
-- Create a RecordCollector (or customer) constructor who can buy and sell records.
-- Use TDD all the way through!
+- Create a method so that the RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold (X)
+- Create a method that reports on the financial situation of the store. Cash and value of inventory. (X)
+- Create a RecordCollector (or customer) constructor who can buy and sell records. (X)
+- Use TDD all the way through! (x)
 
 ## Optional extra
-- If you choose to, you can use lodash for enumerable functionality.
+- If you choose to, you can use lodash for enumerable functionality. (X)

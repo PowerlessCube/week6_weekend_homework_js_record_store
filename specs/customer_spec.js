@@ -33,7 +33,7 @@ describe('Customer Object (empty collection)', function() {
   it('Check customer has a record collection :-)', function() {
     assert.deepEqual( [ record4 ], customer1.collection );
   });
-  // XXX: can buy records.
+  // XXX: Buy function tests
   it('customer.buy func (Part 1): record can be bought and input into collection', function() {
     customer1.buy( recordStore, record2 );
     assert.deepEqual( [ record4, record2 ], customer1.collection );
@@ -52,6 +52,36 @@ describe('Customer Object (empty collection)', function() {
   it('customer.buy func (Part 4): RecordStore balance is increased by records price', function() {
     customer1.buy( recordStore, record2 );
     assert.equal( 121, recordStore.balance );
+  });
+
+  // XXX: Sell Fucntion tests
+  it('customer.sell func (Part 1): Record can be sold from customers collection', function() {
+    customer1.sell( record4, recordStore );
+    assert.deepEqual( [], customer1.collection );
+  });
+
+  it('customer.sell func (Part 2): record is added to recordStore Inventory', function() {
+    customer1.sell( record4, recordStore );
+    assert.deepEqual( [ record1, record2, record3, record4 ], recordStore.inventory );
+  });
+
+  it('customer.sell func (Part 3): Customer\'s balance is positively affected', function() {
+    customer1.sell( record4, recordStore );
+    assert.equal( 50, customer1.balance );
+  });
+
+  it('customer.sell func (Part 4): Shop\'s balance is negatively affected', function() {
+    customer1.sell( record4, recordStore );
+    assert.equal( 113, recordStore.balance );
+  });
+
+  //Helper Functions Tests
+  it('Find a record by by record object', function() {
+    assert.deepEqual( record4, customer1.findRecord( record4 ));
+  });
+
+  it('Returns index of record object', function() {
+    assert.equal( 0, customer1.findRecordIndex( record4 ));
   });
 
 });
