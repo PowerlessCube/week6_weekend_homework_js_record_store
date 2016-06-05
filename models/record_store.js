@@ -15,11 +15,14 @@ RecordStore.prototype = {
 
   sellRecord: function(record) {
     var soldRecord = this.inventory.splice( this.findRecordIndex(record), 1);
-    this.balance -= record.price;
+    this.balance += record.price;
     return soldRecord[0];
   },
 
-  // TODO: - Create a method that reports on the financial situation of the store. Cash and value of inventory.
+  finance: function() {
+    return this.balance + _.sumBy( this.inventory, function(record) {
+      return record.price; });
+  },
 
   //helper functions
   findRecord: function(recordObject) {

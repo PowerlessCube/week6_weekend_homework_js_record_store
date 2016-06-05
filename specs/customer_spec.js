@@ -1,4 +1,4 @@
-// FIXME: - Create a RecordCollector (or customer) constructor who
+// FIXME: - Create a RecordCollector (or customer) constructor
 
 // FIXME: can buy records.
 
