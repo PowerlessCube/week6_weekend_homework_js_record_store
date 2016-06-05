@@ -4,7 +4,7 @@ var assert = require( "chai" ).assert;
 
 describe('RecordStore Object (empty inventory):', function() {
 
-  beforeEach(  function() {
+  beforeEach( function() {
     recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
   });
 
