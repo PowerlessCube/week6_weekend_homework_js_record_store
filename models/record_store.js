@@ -1,3 +1,4 @@
+// XXX: Record Store - Object
 var Record = require( "./record" );
 var _ = require( 'lodash' );
 

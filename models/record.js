@@ -1,3 +1,4 @@
+// XXX: Record - Object
 var Record = function(artist, album, price) {
   this.artist = artist;
   this.album = album;

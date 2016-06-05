@@ -46,6 +46,7 @@ describe('RecordStore Object (full inventory)', function() {
     assert.deepEqual( [ record1, record2, record3, record4 ], recordStore.inventory );
   });
 
+  // XXX: SellRecord Function tests
   it('Can sell a record (Part 1) removes a record from the inventory)', function() {
     recordStore.sellRecord( record2 );
     assert.deepEqual( [ record1, record3 ], recordStore.inventory );
