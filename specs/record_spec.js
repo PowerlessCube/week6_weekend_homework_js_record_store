@@ -1,7 +1,7 @@
 var Record = require( '../models/record' );
 var assert = require( 'chai' ).assert;
 
-describe('Record Object Tests:', function() {
+describe('Record Object', function() {
 
   beforeEach( function() {
     record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );

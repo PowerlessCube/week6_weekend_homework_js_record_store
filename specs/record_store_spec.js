@@ -2,7 +2,7 @@ var RecordStore = require( "../models/record_store" );
 var Record = require( "../models/record" );
 var assert = require( "chai" ).assert;
 
-describe('RecordStore Object Tests (empty inventory):', function() {
+describe('RecordStore Object (empty inventory):', function() {
 
   beforeEach(  function() {
     recordStore = new RecordStore( "North Star Records", "Edinburgh", 100 );
@@ -26,7 +26,7 @@ describe('RecordStore Object Tests (empty inventory):', function() {
 
 });
 
-describe('RecordStore Object test (full inventory)', function() {
+describe('RecordStore Object (full inventory)', function() {
 
   beforeEach(  function() {
     record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );
