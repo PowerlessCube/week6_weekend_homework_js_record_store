@@ -22,6 +22,3 @@ describe('Record Object Tests:', function() {
   });
 
 });
-
-
-// FIXME: - Test: Create some new records

@@ -56,6 +56,10 @@ describe('RecordStore Object test (full inventory)', function() {
     assert.equal( 92.01, recordStore.balance );
   });
 
+  it('Can sell a record (Part 3) returns a sold record object', function() {
+    assert.deepEqual( record2, recordStore.sellRecord( record2 ));
+  });
+
   //Helper Functions Tests
   it('Find a record by by record object', function() {
     assert.deepEqual( record2, recordStore.findRecord( record2 ));

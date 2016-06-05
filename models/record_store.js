@@ -16,7 +16,7 @@ RecordStore.prototype = {
   sellRecord: function(record) {
     var soldRecord = this.inventory.splice( this.findRecordIndex(record), 1);
     this.balance -= record.price;
-    return soldRecord;
+    return soldRecord[0];
   },
 
   // TODO: - Create a method that reports on the financial situation of the store. Cash and value of inventory.
