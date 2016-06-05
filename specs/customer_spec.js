@@ -6,10 +6,11 @@ var assert = require( "chai" ).assert;
 describe('Customer Object (empty collection)', function() {
 
   beforeEach( function() {
-
-    record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 10.99 );
-    record2 = new Record( "Blur", "Think Tank", 7.99 );
-    record3 = new Record( "Gorillaz", "Plastic Beach", 11.99 );
+    // FIXME: how do I round numbers to 2 decimal places and still maintain them in number form?
+    record1 = new Record( "AURORA", "All My Demons Greeting Me As A Friend", 11 );
+    record2 = new Record( "Blur", "Think Tank", 8 );
+    record3 = new Record( "Gorillaz", "Plastic Beach", 12 );
+    record4 = new Record( "HighasaKite", "Camp Echo", 13 );
 
     customer1 = new Customer( "Anorak John", 50 );
 
@@ -17,6 +18,8 @@ describe('Customer Object (empty collection)', function() {
     recordStore.addRecordToInventory( record1 );
     recordStore.addRecordToInventory( record2 );
     recordStore.addRecordToInventory( record3 );
+    recordStore.addRecordToInventory( record4 );
+    customer1.buy( recordStore, record4 );
   });
 
   it('Check customer has a name', function() {
@@ -24,16 +27,16 @@ describe('Customer Object (empty collection)', function() {
   });
 
   it('Check customer has a balance', function() {
-    assert.equal( 50, customer1.balance );
+    assert.equal( 37, customer1.balance );
   });
 
-  it('Check customer has an empty collection :-(', function() {
-    assert.deepEqual( [], customer1.collection );
+  it('Check customer has a record collection :-)', function() {
+    assert.deepEqual( [ record4 ], customer1.collection );
   });
-  // FIXME: can buy records.
+  // XXX: can buy records.
   it('customer.buy func (Part 1): record can be bought and input into collection', function() {
     customer1.buy( recordStore, record2 );
-    assert.deepEqual( [ record2 ], customer1.collection );
+    assert.deepEqual( [ record4, record2 ], customer1.collection );
   });
 
   it('customer.buy func (Part 2): record is removed from recordStore inventory', function() {
@@ -43,11 +46,12 @@ describe('Customer Object (empty collection)', function() {
 
   it('customer.buy func (Part 3): customer balance is reduced by records price', function() {
     customer1.buy( recordStore, record2 );
-    assert.equal( 42.01, customer1.balance );
+    assert.equal( 29, customer1.balance );
   });
 
-
-
-  // FIXME: can sell records.
+  it('customer.buy func (Part 4): RecordStore balance is increased by records price', function() {
+    customer1.buy( recordStore, record2 );
+    assert.equal( 121, recordStore.balance );
+  });
 
 });

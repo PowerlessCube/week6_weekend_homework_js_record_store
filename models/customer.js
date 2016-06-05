@@ -9,11 +9,10 @@ var Customer = function( name, balance ) {
 };
 
 Customer.prototype = {
-  // TODO: can buy records.
+  // XXX: can buy records.
   buy: function( recordStore, record2 ) {
     this.collection.push(recordStore.sellRecord( record2 ));
     this.balance -= record2.price;
-    console.log(this.balance);
   }
 
   // TODO: can sell records.
