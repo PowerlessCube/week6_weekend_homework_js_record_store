@@ -30,9 +30,24 @@ describe('Customer Object (empty collection)', function() {
   it('Check customer has an empty collection :-(', function() {
     assert.deepEqual( [], customer1.collection );
   });
+  // FIXME: can buy records.
+  it('customer.buy func (Part 1): record can be bought and input into collection', function() {
+    customer1.buy( recordStore, record2 );
+    assert.deepEqual( [ record2 ], customer1.collection );
+  });
+
+  it('customer.buy func (Part 2): record is removed from recordStore inventory', function() {
+    customer1.buy( recordStore, record2 );
+    assert.deepEqual( [ record1, record3 ], recordStore.inventory );
+  });
+
+  it('customer.buy func (Part 3): customer balance is reduced by records price', function() {
+    customer1.buy( recordStore, record2 );
+    assert.equal( 42.01, customer1.balance );
+  });
+
+
+
+  // FIXME: can sell records.
 
 });
-
-// FIXME: can buy records.
-
-// FIXME: can sell records.
